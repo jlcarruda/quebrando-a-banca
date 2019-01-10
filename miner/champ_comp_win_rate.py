@@ -1,4 +1,3 @@
-
 class ChampCompWinRate:
 
   def __init__(self):
