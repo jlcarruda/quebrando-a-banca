@@ -1,9 +1,17 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from miner import Miner
 
 class ChampCompWinRate(Miner):
 
+  # Ideias para geraçao de dados
+  # - Comps que mais ganharam nos anos
+  # - Comps que mais ganharam nos respectivos lados
+  #
+
   def __init__(self):
     self.df = self.pd.read_excel("./datasets/champ_comp.xlsx")
+    self.identifier = 'champ_comp'
 
   def process_chain(self):
     self.__generateGlobalTreasures()
@@ -14,26 +22,24 @@ class ChampCompWinRate(Miner):
   def __getBySide(self, *args):
     return self.df[self.df.time == args[0]]
 
-  def after_process(self):
-    self.__generateBestREDCompsBarChart()
+
+
 
   #   PROCESSORS
+
+  def __generateGlobalCSV(self, df, id, set_attr = False):
+
+    if set_attr:
+      setattr(self, 'att_' + str(id) + '_global', df)
+
+    df.to_csv('./treasures/champ_comp/global_' + str(id) + '_' + self.identifier + '_list.csv')
+
   def __generateGlobalTreasures(self):
     # created a champ comp identifier
     self.df['champComp'] = self.df.apply(lambda row: row['champ1'] + '/' + row['champ2'], axis=1)
 
-    # Datasets Sorted by Years
-    for year in [2015, 2016, 2017]:
-      dfByYear = self.__getByYear(year)
-      setattr(self, 'y' + str(year) + '_global', dfByYear)
-      dfByYear.to_csv('./treasures/champ_comp/global_' + str(year) + '_champ_comp_list.csv')
-
-
-    for side in ['RED', 'BLUE']:
-      dfBySide = self.__getBySide(side)
-      setattr(self, str(side) + '_global', dfBySide)
-      dfBySide.to_csv('./treasures/champ_comp/global_' + str(side) + '_champ_comp_list.csv')
-
+    self.dfByYear = map(lambda x: self.__generateGlobalCSV(self.__getByYear(x), x, True), [2015, 2016, 2017])
+    self.dfBySide = map(lambda x: self.__generateGlobalCSV(self.__getBySide(x), x, True), ['RED', 'BLUE'])
 
   def __generateBestREDCompsBarChart(self):
     universe = self.y2016_global

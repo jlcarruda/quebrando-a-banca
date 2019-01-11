@@ -3,6 +3,8 @@ class Miner:
   import matplotlib.pyplot as plt
   import numpy as np
 
+  identifier = ''
+
   def process_chain(self):
     print 'empty process chain'
 
