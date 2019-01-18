@@ -50,6 +50,7 @@ def start():
         if result==1:
             try:
                 dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]
+                print dictionary['DEFEAT'] + "=== " + dictionary['TOTALPLAYED']
                 dictionary['VICTORY']        +=1
                 dictionary['TOTALPLAYED']    +=1
                 dictionary['PERCENTVICTORY'] =dictionary['VICTORY']/dictionary['TOTALPLAYED']

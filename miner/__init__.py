@@ -1,5 +1,5 @@
 import pandas as pd
 import matplotlib as mp
-import champ_comp_win_rate as ccwr
+import champ_duos_processor as ccwr
 
-champCompWinRate = ccwr.ChampCompWinRate()
+champDuosProcessor = ccwr.ChampDuosProcessor()

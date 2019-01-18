@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 from miner import Miner
 
-class ChampCompWinRate(Miner):
+class ChampDuosProcessor(Miner):
 
   # Ideias para geraçao de dados
   # - Comps que mais ganharam nos anos
   # - Comps que mais ganharam nos respectivos lados
   def __init__(self, rootpath = "."):
     self.rootpath = rootpath
-    self.df = self.pd.read_excel(rootpath + "/datasets/champ_comp.xlsx")
-    self.identifier = 'champ_comp'
+    self.df = self.pd.read_csv(rootpath + "/treasures/champ_duos.csv")
+    self.identifier = 'champ_duos'
 
   def process_chain(self):
     self.generateGlobalTreasures()

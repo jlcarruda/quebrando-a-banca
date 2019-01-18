@@ -1,7 +1,3 @@
 import miner as miner
 
-champCompWinRate = miner.champCompWinRate
-
-#champCompWinRate.process()
-
-start()
+champDuosProcessor = miner.champDuosProcessor
