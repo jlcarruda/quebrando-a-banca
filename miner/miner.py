@@ -2,6 +2,8 @@ class Miner:
   import pandas as pd
   import matplotlib.pyplot as plt
   import numpy as np
+  import plotly.plotly as py
+  import plotly.tools as tls
 
   identifier = ''
 

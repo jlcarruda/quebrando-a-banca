@@ -7,17 +7,17 @@ class ChampCompWinRate(Miner):
   # Ideias para geraçao de dados
   # - Comps que mais ganharam nos anos
   # - Comps que mais ganharam nos respectivos lados
-
-  def __init__(self):
-    self.df = self.pd.read_excel("./datasets/champ_comp.xlsx")
+  def __init__(self, rootpath = "."):
+    self.rootpath = rootpath
+    self.df = self.pd.read_excel(rootpath + "/datasets/champ_comp.xlsx")
     self.identifier = 'champ_comp'
 
   def process_chain(self):
-    self.__generateGlobalTreasures()
+    self.generateGlobalTreasures()
     self.matchCountByYear = {}
 
 
-  def __getByYear(self, *args):
+  def __getByYear(self, *args)  :
     return self.df[self.df.ano == args[0]]
 
   def __getBySide(self, *args):
@@ -26,13 +26,19 @@ class ChampCompWinRate(Miner):
   def __generateGlobalCSV(self, df, id, set_attr = False):
     if set_attr:
       setattr(self, 'att_' + str(id) + '_global', df)
-    df.to_csv('./treasures/champ_comp/global_' + str(id) + '_' + self.identifier + '_list.csv')
+    df.to_csv(self.rootpath + '/treasures/champ_comp/global_' + str(id) + '_' + self.identifier + '_list.csv')
 
-  def __generateGlobalTreasures(self):
+  def generateGlobalTreasures(self):
     # created a champ comp identifier
     self.df['champComp'] = self.df.apply(lambda row: row['champ1'] + '/' + row['champ2'], axis=1)
-    self.dfByYear = map(lambda x: self.__generateGlobalCSV(self.__getByYear(x), x, True), [2015, 2016, 2017])
-    self.dfBySide = map(lambda x: self.__generateGlobalCSV(self.__getBySide(x), x, True), ['RED', 'BLUE'])
+    self.dfByYear = self.sortedByYear()
+    self.dfBySide = self.sortedBySide()
+
+  def sortedByYear(self):
+    return map(lambda x: self.__getByYear(x), [2015, 2016, 2017])
+
+  def sortedBySide(self):
+    return map(lambda x:self.__getBySide(x), ['RED', 'BLUE'])
 
   def __generateBestREDCompsBarChart(self):
     universe = self.att_2016_global

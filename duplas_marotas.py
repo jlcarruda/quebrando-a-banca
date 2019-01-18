@@ -2,7 +2,7 @@
 import pandas as pd
 import json
 
-# duplas mais relevantes / lane
+# duplas mais relevantes / lane  (OK - )
 # dupla mais efetivas
 # funcoes das duplas masi efetivas
 # comb de skills de duplas efetivas

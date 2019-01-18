@@ -4,10 +4,9 @@ import json
 import csv
 
 def start():
-    arqSaida = open('saida.txt', "w")
     bestCombination={}
 
-    lol_df = pd.read_csv('LeagueofLegends.csv', thousands=",")
+    lol_df = pd.read_csv('../datasets/LeagueofLegends.csv', thousands=",")
     dic_bResult          = ((lol_df[['bResult']]).to_json())
     dic_blueTopChamp     = ((lol_df[['blueTopChamp']]).to_json())
     dic_blueMiddleChamp  = ((lol_df[['blueMiddleChamp']]).to_json())
@@ -56,12 +55,12 @@ def start():
                 dictionary['PERCENTVICTORY'] =dictionary['VICTORY']/dictionary['TOTALPLAYED']
                 dictionary['PERCENTDEFEAT']  =dictionary['DEFEAT']/dictionary['TOTALPLAYED']
 
-                    
-                    
+
+
             except:
-                
+
                 combination[team+","+champ1+","+champ2+','+year+','+season]={}
-                dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]            
+                dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]
                 dictionary['CHAMP1']         =champ1
                 dictionary['CHAMP2']         =champ2
                 dictionary['CHAMP1_POSITION']=champ1_posi
@@ -84,12 +83,12 @@ def start():
                 dictionary['PERCENTVICTORY'] =dictionary['VICTORY']/dictionary['TOTALPLAYED']
                 dictionary['PERCENTDEFEAT']  =dictionary['DEFEAT']/dictionary['TOTALPLAYED']
 
-                    
-                    
+
+
             except:
-                
+
                 combination[team+","+champ1+","+champ2+','+year+','+season]={}
-                dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]            
+                dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]
                 dictionary['CHAMP1']         =champ1
                 dictionary['CHAMP2']         =champ2
                 dictionary['CHAMP1_POSITION']=champ1_posi
@@ -132,9 +131,11 @@ def start():
         bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
 
-    arqName = "duplas_marotas"
-    with open(arqName+'.csv', 'w') as f:  # Just use 'w' mode in 3.x
+    arqName = "champ_duos"
+    with open("../treasures/"+arqName+'.csv', 'w') as f:  # Just use 'w' mode in 3.x
         w = csv.DictWriter(f, bestCombination["Blue,Irelia,RekSai,2015,Spring"].keys())
         w.writeheader()
         for key in bestCombination.keys():
          w.writerow(bestCombination[key])
+
+start()
