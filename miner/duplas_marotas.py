@@ -47,7 +47,7 @@ def start():
     dicseason           = json.loads(dic_season)
 
 
-    def addToDic(combination,champ1,champ2,result,year,season,team):
+    def addToDic(combination,champ1,champ2,result,year,season,team,champ1_posi,champ2_posi):
         if result==1:
             try:
                 dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]
@@ -64,6 +64,8 @@ def start():
                 dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]            
                 dictionary['CHAMP1']         =champ1
                 dictionary['CHAMP2']         =champ2
+                dictionary['CHAMP1_POSITION']=champ1_posi
+                dictionary['CHAMP2_POSITION']=champ2_posi
                 dictionary['VICTORY']        =1
                 dictionary['DEFEAT']         =0
                 dictionary['TOTALPLAYED']    =1
@@ -90,6 +92,8 @@ def start():
                 dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]            
                 dictionary['CHAMP1']         =champ1
                 dictionary['CHAMP2']         =champ2
+                dictionary['CHAMP1_POSITION']=champ1_posi
+                dictionary['CHAMP2_POSITION']=champ2_posi
                 dictionary['VICTORY']        =0
                 dictionary['DEFEAT']         =1
                 dictionary['TOTALPLAYED']    =1
@@ -103,28 +107,28 @@ def start():
 
 
     for x in range(0,len(dicbResult['bResult'])):
-        a=addToDic(bestCombination,str(dicblueTopChamp['blueTopChamp'][str(x)]),str(dicblueJungleChamp['blueJungleChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue')
+        a=addToDic(bestCombination,str(dicblueTopChamp['blueTopChamp'][str(x)]),str(dicblueJungleChamp['blueJungleChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue','TOP_LANER','JUNGLER')
         bestCombination["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-        a=addToDic(bestCombination,str(dicblueJungleChamp['blueJungleChamp'][str(x)]),str(dicblueMiddleChamp['blueMiddleChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue')
+        a=addToDic(bestCombination,str(dicblueJungleChamp['blueJungleChamp'][str(x)]),str(dicblueMiddleChamp['blueMiddleChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue','JUNGLER','MID_LANER')
         bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-        a=addToDic(bestCombination,str(dicblueJungleChamp['blueJungleChamp'][str(x)]),str(dicblueSupportChamp['blueSupportChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue')
+        a=addToDic(bestCombination,str(dicblueJungleChamp['blueJungleChamp'][str(x)]),str(dicblueSupportChamp['blueSupportChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue','JUNGLER','SUPPORT')
         bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-        a=addToDic(bestCombination,str(dicblueADCChamp['blueADCChamp'][str(x)]),str(dicblueSupportChamp['blueSupportChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue')
+        a=addToDic(bestCombination,str(dicblueADCChamp['blueADCChamp'][str(x)]),str(dicblueSupportChamp['blueSupportChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue','AD_CARRY','SUPPORT')
         bestCombination["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-        a=addToDic(bestCombination,str(dicredTopChamp['redTopChamp'][str(x)]),str(dicredJungleChamp['redJungleChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red')
+        a=addToDic(bestCombination,str(dicredTopChamp['redTopChamp'][str(x)]),str(dicredJungleChamp['redJungleChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red','TOP_LANER','JUNGLER')
         bestCombination["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-        a=addToDic(bestCombination,str(dicredJungleChamp['redJungleChamp'][str(x)]),str(dicredMiddleChamp['redMiddleChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red')
+        a=addToDic(bestCombination,str(dicredJungleChamp['redJungleChamp'][str(x)]),str(dicredMiddleChamp['redMiddleChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red','JUNGLER','MID_LANER')
         bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-        a=addToDic(bestCombination,str(dicredJungleChamp['redJungleChamp'][str(x)]),str(dicredSupportChamp['redSupportChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red')
+        a=addToDic(bestCombination,str(dicredJungleChamp['redJungleChamp'][str(x)]),str(dicredSupportChamp['redSupportChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red','AD_CARRY','SUPPORT')
         bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-        a=addToDic(bestCombination,str(dicredADCChamp['redADCChamp'][str(x)]),str(dicredSupportChamp['redSupportChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red')
+        a=addToDic(bestCombination,str(dicredADCChamp['redADCChamp'][str(x)]),str(dicredSupportChamp['redSupportChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red','AD_CARRY','SUPPORT')
         bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
 
