@@ -1,12 +1,13 @@
 
 import pandas as pd
 import json
+import csv
 
 def start():
     arqSaida = open('saida.txt', "w")
     bestCombination={}
 
-    lol_df = pd.read_csv('./datasets/LeagueofLegends.csv', thousands=",")
+    lol_df = pd.read_csv('LeagueofLegends.csv', thousands=",")
     dic_bResult          = ((lol_df[['bResult']]).to_json())
     dic_blueTopChamp     = ((lol_df[['blueTopChamp']]).to_json())
     dic_blueMiddleChamp  = ((lol_df[['blueMiddleChamp']]).to_json())
@@ -45,374 +46,91 @@ def start():
     dicyear             = json.loads(dic_year)
     dicseason           = json.loads(dic_season)
 
-        
-        
+
+    def addToDic(combination,champ1,champ2,result,year,season,team):
+        if result==1:
+            try:
+                dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]
+                dictionary['VICTORY']        +=1
+                dictionary['TOTALPLAYED']    +=1
+                dictionary['PERCENTVICTORY'] =dictionary['VICTORY']/dictionary['TOTALPLAYED']
+                dictionary['PERCENTDEFEAT']  =dictionary['DEFEAT']/dictionary['TOTALPLAYED']
+
+                    
+                    
+            except:
+                
+                combination[team+","+champ1+","+champ2+','+year+','+season]={}
+                dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]            
+                dictionary['CHAMP1']         =champ1
+                dictionary['CHAMP2']         =champ2
+                dictionary['VICTORY']        =1
+                dictionary['DEFEAT']         =0
+                dictionary['TOTALPLAYED']    =1
+                dictionary['PERCENTVICTORY'] =1.0
+                dictionary['PERCENTDEFEAT']  =0.0
+                dictionary['YEAR']           =year
+                dictionary['SEASON']         =season
+                dictionary['TEAM']           =team
+
+            return combination
+        else:
+            try:
+                dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]
+                dictionary['DEFEAT']         +=1
+                dictionary['TOTALPLAYED']    +=1
+                dictionary['PERCENTVICTORY'] =dictionary['VICTORY']/dictionary['TOTALPLAYED']
+                dictionary['PERCENTDEFEAT']  =dictionary['DEFEAT']/dictionary['TOTALPLAYED']
+
+                    
+                    
+            except:
+                
+                combination[team+","+champ1+","+champ2+','+year+','+season]={}
+                dictionary=combination[team+","+champ1+","+champ2+','+year+','+season]            
+                dictionary['CHAMP1']         =champ1
+                dictionary['CHAMP2']         =champ2
+                dictionary['VICTORY']        =0
+                dictionary['DEFEAT']         =1
+                dictionary['TOTALPLAYED']    =1
+                dictionary['PERCENTVICTORY'] =0.0
+                dictionary['PERCENTDEFEAT']  =1.0
+                dictionary['YEAR']           =year
+                dictionary['SEASON']         =season
+                dictionary['TEAM']           =team
+
+            return combination
+
 
     for x in range(0,len(dicbResult['bResult'])):
-        
-        if dicbResult['bResult'][str(x)]==1:
-            try:
-                dictonary=bestCombination["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
+        a=addToDic(bestCombination,str(dicblueTopChamp['blueTopChamp'][str(x)]),str(dicblueJungleChamp['blueJungleChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue')
+        bestCombination["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-                    
-                    
-            except:
-                dictonary=bestCombination["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicblueTopChamp['blueTopChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicblueJungleChamp['blueJungleChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Blue'
-            try:
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
+        a=addToDic(bestCombination,str(dicblueJungleChamp['blueJungleChamp'][str(x)]),str(dicblueMiddleChamp['blueMiddleChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue')
+        bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-                    
-                    
-            except:
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicblueJungleChamp['blueJungleChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Blue'
-            try:
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
+        a=addToDic(bestCombination,str(dicblueJungleChamp['blueJungleChamp'][str(x)]),str(dicblueSupportChamp['blueSupportChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue')
+        bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-                    
-                    
-            except:
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicblueJungleChamp['blueJungleChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicblueSupportChamp['blueSupportChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Blue'
-            try:
-                dictonary=bestCombination["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
+        a=addToDic(bestCombination,str(dicblueADCChamp['blueADCChamp'][str(x)]),str(dicblueSupportChamp['blueSupportChamp'][str(x)]),dicbResult['bResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Blue')
+        bestCombination["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-                    
-                    
-            except:
-                dictonary=bestCombination["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicblueADCChamp['blueADCChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicblueSupportChamp['blueSupportChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Blue'
-            
-        else:
-            try:
-                dictonary=bestCombination["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['DEFEAT']        +=1
-                dictonary['TOTALPLAYED']   +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-                
-            
-                    
-                    
-            except:
-                dictonary=bestCombination["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Blue,"+str(dicblueTopChamp['blueTopChamp'][str(x)])+","+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicblueTopChamp['blueTopChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicblueJungleChamp['blueJungleChamp'][str(x)])
-                dictonary['VICTORY']        =0
-                dictonary['DEFEAT']         =1 
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =0.0
-                dictonary['PERCENTDEFEAT']  =1.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Blue'
-            try:
-                dictonary=bestCombination[str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
+        a=addToDic(bestCombination,str(dicredTopChamp['redTopChamp'][str(x)]),str(dicredJungleChamp['redJungleChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red')
+        bestCombination["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-                    
-                    
-            except:
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicblueJungleChamp['blueJungleChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicblueMiddleChamp['blueMiddleChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Blue'
-            try:
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
+        a=addToDic(bestCombination,str(dicredJungleChamp['redJungleChamp'][str(x)]),str(dicredMiddleChamp['redMiddleChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red')
+        bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-                    
-                    
-            except:
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Blue,"+str(dicblueJungleChamp['blueJungleChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicblueJungleChamp['blueJungleChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicblueSupportChamp['blueSupportChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Blue'
-            try:
-                dictonary=bestCombination["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
+        a=addToDic(bestCombination,str(dicredJungleChamp['redJungleChamp'][str(x)]),str(dicredSupportChamp['redSupportChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red')
+        bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
-                    
-                    
-            except:
-                dictonary=bestCombination["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Blue,"+str(dicblueADCChamp['blueADCChamp'][str(x)])+","+str(dicblueSupportChamp['blueSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicblueADCChamp['blueADCChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicblueSupportChamp['blueSupportChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Blue'
-                    
-
-        if dicrResult['rResult'][str(x)]==1:
-            try:
-                dictonary=bestCombination["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-
-                    
-                    
-            except:
-                dictonary=bestCombination["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicredTopChamp['redTopChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicredJungleChamp['redJungleChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Red'
-            try:
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-
-                    
-                    
-            except:
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicredJungleChamp['redJungleChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicredMiddleChamp['redMiddleChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Red'
-            try:
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-
-                    
-                    
-            except:
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicredJungleChamp['redJungleChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicredSupportChamp['redSupportChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Red'
-            try:
-                dictonary=bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-
-                    
-                    
-            except:
-                dictonary=bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicredADCChamp['redADCChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicredSupportChamp['redSupportChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Red'
-            
-        else:
-            try:
-                dictonary=bestCombination["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['DEFEAT']        +=1
-                dictonary['TOTALPLAYED']   +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-            
-                    
-                    
-            except:
-                dictonary=bestCombination["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Red,"+str(dicredTopChamp['redTopChamp'][str(x)])+","+str(dicredJungleChamp['redJungleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicredTopChamp['redTopChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicredJungleChamp['redJungleChamp'][str(x)])
-                dictonary['VICTORY']        =0
-                dictonary['DEFEAT']         =1 
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =0.0
-                dictonary['PERCENTDEFEAT']  =1.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Red'
-            try:
-                dictonary=bestCombination[sRr(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-
-                    
-                    
-            except:
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicredJungleChamp['redJungleChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicredMiddleChamp['redMiddleChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Red'
-            try:
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-
-                    
-                    
-            except:
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicredJungleChamp['redJungleChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicredSupportChamp['redSupportChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Red'
-            try:
-                dictonary=bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['VICTORY']        +=1
-                dictonary['TOTALPLAYED']    +=1
-                dictonary['PERCENTVICTORY'] =dictonary['VICTORY']/dictonary['TOTALPLAYED']
-                dictonary['PERCENTDEFEAT']  =dictonary['DEFEAT']/dictonary['TOTALPLAYED']
-
-                    
-                    
-            except:
-                dictonary=bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]={}
-                dictonary=bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+','+str(dicyear['Year'][str(x)])+','+str(dicseason['Season'][str(x)])]
-                dictonary['CHAMP1']         =str(dicredADCChamp['redADCChamp'][str(x)])
-                dictonary['CHAMP2']         =str(dicredSupportChamp['redSupportChamp'][str(x)])
-                dictonary['VICTORY']        =1
-                dictonary['DEFEAT']         =0
-                dictonary['TOTALPLAYED']    =1
-                dictonary['PERCENTVICTORY'] =1.0
-                dictonary['PERCENTDEFEAT']  =0.0
-                dictonary['YEAR']           =str(dicyear['Year'][str(x)])
-                dictonary['SEASON']         =str(dicseason['Season'][str(x)])
-                dictonary['TEAM']           ='Red'
-                    
+        a=addToDic(bestCombination,str(dicredADCChamp['redADCChamp'][str(x)]),str(dicredSupportChamp['redSupportChamp'][str(x)]),dicrResult['rResult'][str(x)],str(dicyear['Year'][str(x)]),str(dicseason['Season'][str(x)]),'Red')
+        bestCombination["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]=a["Red,"+str(dicredADCChamp['redADCChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
 
-
-    arqSaida.write(str(bestCombination))
+    arqName = "duplas_marotas"
+    with open(arqName+'.csv', 'w') as f:  # Just use 'w' mode in 3.x
+        w = csv.DictWriter(f, bestCombination["Blue,Irelia,RekSai,2015,Spring"].keys())
+        w.writeheader()
+        for key in bestCombination.keys():
+         w.writerow(bestCombination[key])
