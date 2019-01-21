@@ -1,0 +1,374 @@
+type,skill,champion
+['Aura'],Tailwind,Janna
+"['Aura', 'Dash', 'Sight']",Demacian Standard,Jarvan IV
+['Aura'],Wild Growth,Lulu
+"['Aura', 'Aura']",On the Hunt,Sivir
+['Aura'],Hymn of Valor,Sona
+['Aura'],Aria of Perseverance,Sona
+['Aura'],Song of Celerity,Sona
+['Aura'],Despair,Amumu
+['Aura'],Burning Agony,Dr. Mundo
+"['Blink', 'Blink']",Living Shadow 2,Zed
+"['Blink', 'Blink', 'Debuff']",Riftwalk,Kassadin
+"['Blink', 'Dash']",Event Horizon,Veigar
+"['Blink', 'Dash']",Phase Dive,Ekko
+"['Blink', 'Sight', 'Untargetability']",Rappel,Elise
+"['Blink', 'Untargetability']",Last Caress,Evelynn
+"['Blink', 'Magic_damage']",Arcane Shift,Ezreal
+['Blink'],Crowstorm,Fiddlesticks
+"['Blink', 'Magic_damage']",Shunpo,Katarina
+['Blink'],Distortion 2,LeBlanc
+['Blink'],Glacial Path,Lissandra
+"['Blink', 'Untargetability']",Alpha Strike,Master Yi
+"['Blink', 'Sight', 'Untargetability']",Grand Skyfall,Pantheon
+['Blink'],Death from Below,Pyke
+"['Blink', 'Untargetability', 'Untargetability', 'Untargetability']",Realm Warp,Ryze
+"['Blink', 'Physical_damage']",Deceive,Shaco
+['Blink'],Stand United,Shen
+['Blink'],Abyssal Voyage 2,Tahm Kench
+['Blink'],Gate,Twisted Fate
+['Blink'],Last Breath,Yasuo
+['Blink'],Death Mark 2,Zed
+['Blink'],Portal Jump,Zoe
+['Blink'],Spell Thief,Zoe
+['Combat_status'],Crystallize,Anivia
+"['Combat_status', 'Untargetability']",Tempered Fate,Bard
+['Combat_status'],Pillar of Ice,Trundle
+"['Combat_status', 'Sight']",Dark Procession,Yorick
+"['Combat_status', 'Debuff', 'Untargetability']",Time Bomb,Zilean
+['Combat_status'],Summon Tibbers,Annie
+['Combat_status'],Demon Shade,Evelynn
+"['Combat_status', 'True_damage']",Consume,Nunu
+"['Combat_status', 'Dash']",Unseen Predator,Rengar
+['Combat_status'],Rock Surfing,Taliyah
+['Combat_status'],Shepherd of Souls,Yorick
+['Combat_status'],Time in a Bottle,Zilean
+"['Combat_status', 'Untargetability']",Hallucinate,Shaco
+"['Magic_damage', 'Physical_damage', 'Debuff']",Sunlight,Leona
+['Magic_damage'],Five Point Strike,Akali
+['Magic_damage'],Hextech Munitions,Corki
+"['Magic_damage', 'Sight']",Phosphorus Bomb,Corki
+"['Magic_damage', 'Dash']",Special Delivery,Corki
+"['Magic_damage', 'Debuff']",Gatling Gun,Corki
+['Magic_damage'],Missile Barrage,Corki
+['Magic_damage'],Essence Flux,Ezreal
+"['Magic_damage', 'Sight']",Trueshot Barrage,Ezreal
+['Magic_damage'],Colossal Smash,Galio
+['Magic_damage'],Ionian Fervor,Irelia
+['Magic_damage'],Thundering Blow,Jayce
+['Magic_damage'],Transform Mercury Hammer,Jayce
+['Magic_damage'],Captive Audience,Jhin
+['Magic_damage'],Void Seeker,Kai'Sa
+['Magic_damage'],Voracity,Katarina
+"['Magic_damage', 'Untargetability']",Death Lotus,Katarina
+['Magic_damage'],Reckoning,Kayle
+['Magic_damage'],Righteous Fury,Kayle
+['Magic_damage'],Electrical Surge,Kennen
+['Magic_damage'],Unseen Threat,Kha'Zix
+"['Magic_damage', 'Sight']",Wolf's Frenzy,Kindred
+"['Magic_damage', 'Sight']",Living Artillery,Kog'Maw
+"['Magic_damage', 'Debuff', 'Sight']",Tempest,Lee Sin
+['Magic_damage'],Void Swarm,Malzahar
+['Magic_damage'],Mace of Spades,Mordekaiser
+['Magic_damage'],Siphon of Destruction,Mordekaiser
+['Magic_damage'],Takedown,Nidalee
+['Magic_damage'],Burnout,Shyvana
+"['Magic_damage', 'Debuff']",Flame Breath,Shyvana
+['Magic_damage'],Crystal Slash,Skarner
+['Magic_damage'],Petricite Burst,Sylas
+['Magic_damage'],Flay,Thresh
+['Magic_damage'],Pick a Card,Twisted Fate
+['Magic_damage'],Siphon Power,Viktor
+"['Magic_damage', 'Dash']",Jaws of the Beast,Warwick
+"['Magic_damage', 'Dash']",Infinite Duress,Warwick
+['Magic_damage'],Eulogy of the Isles,Yorick
+"['Physical_damage', 'True_damage']",Unbreakable Will,Alistar
+"['Physical_damage', 'Untargetability']",Mystic Shot,Ezreal
+['Physical_damage'],GNAR!,Gnar
+"['Physical_damage', 'True_damage']",Defiant Dance,Irelia
+"['Physical_damage', 'Dash']",Leap Strike,Jax
+['Physical_damage'],Dancing Grenade,Jhin
+['Physical_damage'],Icathian Rain,Kai'Sa
+['Physical_damage'],The Culling,Lucian
+['Physical_damage'],Brutal Strikes,Malphite
+['Physical_damage'],Double Up,Miss Fortune
+['Physical_damage'],Bullet Time,Miss Fortune
+"['Physical_damage', 'Sight']",Blinding Assault,Quinn
+"['Physical_damage', 'Sight']",Prey Seeker,Rek'Sai
+['Physical_damage'],Winter's Wrath,Sejuani
+['Physical_damage'],Backstab,Shaco
+['Physical_damage'],Two-Shiv Poison,Shaco
+['Physical_damage'],Boomerang Blade,Sivir
+"['Physical_damage', 'Debuff']",Explosive Charge,Tristana
+"['Physical_damage', 'Dash']",Spinning Slash,Tryndamere
+['Physical_damage'],Contaminate,Twitch
+['Physical_damage'],Excessive Force,Vi
+['True_damage'],Unbreakable,Braum
+['True_damage'],Shield of Durand,Galio
+['True_damage'],Primal Howl,Warwick
+['True_damage'],Aegis Protection,Pantheon
+['True_damage'],Intervention,Kayle
+"['True_damage', 'Spell_shield']",Riposte,Fiora
+['True_damage'],Counter Strike,Jax
+"['True_damage', 'True_damage']",Feast,Cho'Gath
+"['True_damage', 'True_damage', 'Debuff']",Silver Bolts,Vayne
+['True_damage'],Soul Furnace,Sion
+['True_damage'],Eye of the Storm,Janna
+['True_damage'],Precision Protocol 3,Camille
+"['True_damage', 'True_damage', 'True_damage']",Duelist's Dance,Fiora
+"['True_damage', 'Debuff']",Trial by Fire,Gangplank
+['True_damage'],Powder Keg,Gangplank
+"['True_damage', 'True_damage', 'Debuff', 'Debuff']",Demacian Justice,Garen
+"['True_damage', 'Debuff', 'Debuff']",Deadly Venom,Twitch
+['True_damage'],Wuju Style,Master Yi
+['True_damage'],Orb of Deception,Ahri
+"['True_damage', 'Debuff']",Cursed Touch,Amumu
+"['True_damage', 'Dash']",Noxian Guillotine,Darius
+"['True_damage', 'Dash']",Lunge,Fiora
+['True_damage'],Grand Challenge,Fiora
+"['True_damage', 'Sight']",Cannon Barrage,Gangplank
+"['True_damage', 'Debuff']",Judgment,Garen
+['True_damage'],Friend of the Forest,Ivern
+"['True_damage', 'Untargetability']",Icathian Surprise,Kog'Maw
+['True_damage'],Reckless Swing,Olaf
+['True_damage'],Furious Bite,Rek'Sai
+"['True_damage', 'Sight', 'Untargetability']",Force of Will,Syndra
+"['True_damage', 'Debuff']",Organic Deconstruction,Vel'Koz
+['True_damage'],Life Form Disintegration Ray,Vel'Koz
+['True_damage'],Researched,Vel'Koz
+['True_damage'],Sleepy Trouble Bubble,Zoe
+"['True_damage', 'Untargetability', 'Untargetability']",Glory in Death,Sion
+"['True_damage', 'Dash', 'Debuff', 'Sight', 'Untargetability']",Death Mark,Zed
+"['True_damage', 'Debuff']",Hemoplague,Vladimir
+"['Dash', 'Dash']",Arctic Assault,Sejuani
+"['Dash', 'Dash']",Venomous Bite,Elise
+"['Dash', 'Dash']",Justice Punch,Galio
+"['Dash', 'Dash', 'Sight']",Jousting,Kled
+"['Dash', 'Dash']",Searing Charge,Ornn
+"['Dash', 'Dash']",Broken Wings,Riven
+"['Dash', 'Dash']",Valor,Riven
+"['Dash', 'Dash']",Tumble,Vayne
+"['Dash', 'Dash']",Disdain,Urgot
+"['Dash', 'Dash']",Relentless Pursuit,Lucian
+"['Dash', 'Debuff', 'Sight']",Flame Chompers!,Jinx
+"['Dash', 'Sight']",Magical Journey,Bard
+['Dash'],Shuriken Flip 2,Akali
+['Dash'],Rootcaller,Ivern
+"['Dash', 'Debuff']",Dragon Strike,Jarvan IV
+['Dash'],Jousting 2,Kled
+"['Dash', 'Dash']",Chaaaaaaaarge!!!,Kled
+['Dash'],Resonating Strike,Lee Sin
+['Dash'],Zenith Blade,Leona
+"['Dash', 'Dash']",Dredge Line,Nautilus
+['Dash'],Death Leap,Thresh
+"['Dash', 'Sight']",Dark Passage,Thresh
+"['Dash', 'Sight']",Satchel Charge,Ziggs
+['Dash'],Umbral Dash,Aatrox
+['Dash'],Shuriken Flip,Akali
+['Dash'],Perfect Execution,Akali
+['Dash'],90 Caliber Net,Caitlyn
+['Dash'],Body Slam,Gragas
+['Dash'],Quickdraw,Graves
+['Dash'],Collateral Damage,Graves
+['Dash'],Martial Poise,Kalista
+"['Dash', 'Untargetability']",Fate's Call,Kalista
+['Dash'],Reaping Slash,Kayn
+['Dash'],Umbral Trespass 2,Kayn
+['Dash'],Pocket Pistol,Kled
+['Dash'],Call of the Forge God 2,Ornn
+['Dash'],Phantom Undertow,Pyke
+['Dash'],Tunnel,Rek'Sai
+['Dash'],Slice,Renekton
+"['Dash', 'Debuff']",Dice,Renekton
+"['Dash', 'Debuff']",Shadow Dash,Shen
+['Dash'],Unstoppable Onslaught,Sion
+['Dash'],Weaver's Wall 2,Taliyah
+['Dash'],Vault Breaker,Vi
+['Dash'],Spirit Rush,Ahri
+['Dash'],Comet of Legend,Aurelion Sol
+['Dash'],Wall Dive,Camille
+['Dash'],Valkyrie,Corki
+"['Dash', 'Untargetability', 'Untargetability']",Playful,Fizz
+['Dash'],Trickster,Fizz
+['Dash'],Hero's Entrance,Galio
+['Dash'],Hop,Gnar
+['Dash'],Crunch,Mega Gnar
+['Dash'],Onslaught of Shadows,Hecarim
+['Dash'],Dance of Arrows,Kindred
+['Dash'],Leap,Kha'Zix
+['Dash'],Distortion,LeBlanc
+['Dash'],Mimic Distortion,LeBlanc
+['Dash'],Unstoppable Force,Malphite
+['Dash'],Pounce,Nidalee
+['Dash'],Dragon's Descent,Shyvana
+['Dash'],Rocket Jump,Tristana
+['Dash'],Grand Entrance,Rakan
+['Dash'],Elastic Slingshot,Zac
+['Dash'],Headbutt,Alistar
+['Dash'],Bandage Toss,Amumu
+['Dash'],Shifting Sands,Azir
+['Dash'],Arise!,Azir
+['Dash'],Stand Behind Me,Braum
+['Dash'],Lunar Rush,Diana
+['Dash'],Empowered Whiplash,Evelynn
+['Dash'],Urchin Strike,Fizz
+['Dash'],Devastating Charge,Hecarim
+"['Dash', 'Spell_shield', 'Spell_shield']",Harsh Lesson,Illaoi
+['Dash'],Bladesurge,Irelia
+['Dash'],Cataclysm,Jarvan IV
+['Dash'],To the Skies!,Jayce
+"['Dash', 'Sight', 'Untargetability']",Umbral Trespass,Kayn
+['Dash'],Safeguard,Lee Sin
+"['Dash', 'Untargetability']",Twisted Advance,Maokai
+"['Dash', 'Sight']",Paranoia,Nocturne
+['Dash'],Aegis of Zeonia,Pantheon
+['Dash'],Heroic Charge,Poppy
+['Dash'],Vault,Quinn
+['Dash'],Battle Dance,Rakan
+"['Dash', 'Untargetability']",Void Rush,Rek'Sai
+['Dash'],Noxian Diplomacy,Talon
+['Dash'],Assault and Battery,Vi
+['Dash'],Nimbus Strike,Wukong
+['Dash'],Audacious Charge,Xin Zhao
+['Dash'],Sweeping Blade,Yasuo
+['Dash'],Hookshot,Camille
+['Dash'],Assassin's Path,Talon
+['Debuff'],Aspect of the Cougar,Nidalee
+['Debuff'],Rebirth,Anivia
+['Debuff'],Transform Mercury Cannon,Jayce
+"['Debuff', 'Sight']",Wall of Pain,Karthus
+['Debuff'],Holy Fervor,Kayle
+['Debuff'],Caustic Spittle,Kog'Maw
+"['Debuff', 'Sight']",Spirit Fire,Nasus
+['Debuff'],Spell Flux,Ryze
+"['Debuff', 'Untargetability']",Roar of the Slayer,Sion
+['Debuff'],Chomp,Trundle
+"['Debuff', 'Debuff']",Subjugate,Trundle
+['Debuff'],Mocking Shout,Tryndamere
+"['Debuff', 'Debuff']",Denting Blows,Vi
+['Debuff'],Crushing Blow,Wukong
+"['Debuff', 'Debuff']",Challenge,Xin Zhao
+['Debuff'],Mark of the Assassin,Akali
+['Debuff'],Flash Frost,Anivia
+"['Debuff', 'Debuff']",Glacial Storm,Anivia
+"['Debuff', 'Debuff']",Blaze,Brand
+['Debuff'],Concussive Blows,Braum
+"['Debuff', 'Debuff']",Noxious Blast,Cassiopeia
+"['Debuff', 'Debuff', 'Sight']",Miasma,Cassiopeia
+"['Debuff', 'Debuff']",Hemorrhage,Darius
+"['Debuff', 'Sight']",Crescent Strike,Diana
+['Debuff'],Z-Drive Resonance,Ekko
+"['Debuff', 'Sight', 'Sight']",Chum the Waters,Fizz
+['Debuff'],Hyper,Gnar
+['Debuff'],Rend,Kalista
+"['Debuff', 'Sight', 'Sight']",Sentinel,Kalista
+['Debuff'],Mark of the Storm,Kennen
+['Debuff'],Sigil of Malice,LeBlanc
+"['Debuff', 'Sight']",Sonic Wave,Lee Sin
+"['Debuff', 'Sight']",Ardent Blaze,Lucian
+['Debuff'],Ardent Blaze 2,Lucian
+['Debuff'],Illumination,Lux
+"['Debuff', 'Debuff']",Malefic Visions,Malzahar
+"['Debuff', 'Debuff']",Children of the Grave,Mordekaiser
+"['Debuff', 'Sight']",Prowl,Nidalee
+['Debuff'],Duskbringer,Nocturne
+"['Debuff', 'Sight']",Harrier,Quinn
+['Debuff'],Permafrost,Sejuani
+"['Debuff', 'Debuff']",Poison Trail,Singed
+"['Debuff', 'Debuff']",Twin Fang,Cassiopeia
+['Debuff'],Crystal Venom,Skarner
+['Debuff'],Fracture,Skarner
+['Debuff'],An Acquired Taste,Tahm Kench
+"['Debuff', 'Debuff']",Toxic Shot,Teemo
+"['Debuff', 'Debuff', 'Sight']",Noxious Trap,Teemo
+"['Debuff', 'Debuff']",Blade's End,Talon
+"['Debuff', 'Sight']",Death Sentence,Thresh
+['Debuff'],Hemorrhage 2,Darius
+"['Debuff', 'Untargetability']",Drain,Fiddlesticks
+['Debuff'],Seastone Trident,Fizz
+"['Debuff', 'Sight']",Focused Resolve,Karma
+"['Debuff', 'Sight']",Renewal,Karma
+['Debuff'],Nether Grasp,Malzahar
+['Debuff'],Titan's Wrath,Nautilus
+['Debuff'],Bushwhack,Nidalee
+['Debuff'],Unspeakable Horror,Nocturne
+['Debuff'],Tiger Stance,Udyr
+['Debuff'],Power Chord,Sona
+"['Sight', 'Sight']",Heightened Senses,Quinn
+['Sight'],Smoke Screen,Graves
+"['Sight', 'Untargetability']",Devour,Tahm Kench
+['Sight'],Burrow,Rek'Sai
+['Sight'],Twilight Shroud,Akali
+['Sight'],Hawkshot,Ashe
+['Sight'],Enchanted Crystal Arrow,Ashe
+['Sight'],Caretaker's Shrine,Bard
+"['Sight', 'Sight']",Yordle Snap Trap,Caitlyn
+['Sight'],Rupture,Cho'Gath
+['Sight'],Apprehend,Darius
+['Sight'],Whirling Death,Draven
+['Sight'],Parallel Convergence,Ekko
+['Sight'],CH-2 Electron Storm Grenade,Heimerdinger
+['Sight'],CH-3X Lightning Grenade,Heimerdinger
+['Sight'],H-28G Evolution Turret,Heimerdinger
+['Sight'],H-28Q Apex Turret,Heimerdinger
+['Sight'],Shock Blast,Jayce
+['Sight'],Acceleration Gate,Jayce
+['Sight'],Super Mega Death Rocket!,Jinx
+['Sight'],Lay Waste,Karthus
+['Sight'],Solar Flare,Leona
+['Sight'],Lucent Singularity,Lux
+"['Sight', 'Sight']",Final Spark,Lux
+['Sight'],Call of the Void,Malzahar
+['Sight'],Sapling Toss,Maokai
+"['Sight', 'Sight']",Nature's Grasp,Maokai
+['Sight'],Make It Rain,Miss Fortune
+['Sight'],Undertow,Olaf
+['Sight'],Command Attack,Orianna
+['Sight'],Jack in the Box,Shaco
+['Sight'],Starcall,Soraka
+['Sight'],Seismic Shove,Taliyah
+['Sight'],Weaver's Wall,Taliyah
+['Sight'],Venom Cask,Twitch
+['Sight'],Dark Matter,Veigar
+['Sight'],Tectonic Disruption,Vel'Koz
+['Sight'],Death Ray,Viktor
+['Sight'],Chaos Storm,Viktor
+['Sight'],Eye of Destruction,Xerath
+['Sight'],Rite of the Arcane,Xerath
+['Sight'],Wind Wall,Yasuo
+['Sight'],Living Shadow,Zed
+['Sight'],Hexplosive Minefield,Ziggs
+['Sight'],Mega Inferno Bomb,Ziggs
+"['Sight', 'Sight']",Rampant Growth,Zyra
+['Sight'],Cocoon,Elise
+"['Sight', 'Sight']",Test of Spirit,Illaoi
+['Sight'],Zap!,Jinx
+['Sight'],Aqua Prison,Nami
+['Sight'],Threaded Volley,Taliyah
+['Sight'],Mourning Mist,Yorick
+['Sight'],Ace in the Hole,Caitlyn
+['Sight'],Beartrap on a Rope,Kled
+['Sight'],"Help, Pix!",Lulu
+['Sight'],Thrill of the Hunt,Rengar
+"['Sight', 'Untargetability']",Keeper's Verdict,Poppy
+['Sight'],Destiny,Twisted Fate
+['Spell_shield'],Power Fist,Blitzcrank
+['Spell_shield'],Spell Shield,Sivir
+['Spell_shield'],Shroud of Darkness,Nocturne
+['Spell_shield'],Black Shield,Morgana
+['Spell_shield'],Ragnarok,Olaf
+['Untargetability'],Disintegrate,Annie
+['Untargetability'],Pillar of Flame,Brand
+['Untargetability'],Requiem,Karthus
+"['Untargetability', 'Untargetability']",Wish,Soraka
+['Untargetability'],The Hextech Ultimatum,Camille
+['Untargetability'],Death Defied,Karthus
+['Untargetability'],Skaarl the Cowardly Lizard 3,Kled
+['Untargetability'],Fear Beyond Death 2,Urgot
+['Untargetability'],Sanguine Pool,Vladimir
+['Untargetability'],Featherstorm,Xayah
+['Untargetability'],Shurima's Legacy,Azir
+['Untargetability'],World Ender,Aatrox
+['Untargetability'],Chronobreak,Ekko
+['Untargetability'],Frozen Tomb,Lissandra
+['Untargetability'],Chronoshift,Zilean
