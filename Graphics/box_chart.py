@@ -25,5 +25,7 @@ def mathBoxPlot(listValues, titleFig="Default", titleChart="simple", path='box_c
     except OSError as e:
         if e.errno != errno.EEXIST:
             raise
+    if folder != '':
+        path += (folder + '/')
 
-    plt.savefig(path + folder + titleFig + '.png')
+    plt.savefig(path + titleFig + '.png')

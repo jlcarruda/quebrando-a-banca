@@ -16,6 +16,8 @@ jungler = "JUNGLER"
 champ1 = "CHAMP1_POSITION"
 champ2 = "CHAMP2_POSITION"
 year = "YEAR"
+
+
 t_j = [top, jungler]
 m_J = [mid, jungler]
 s_J = [sup, jungler]
@@ -24,10 +26,13 @@ years = [2016, 2017]
 
 df_top_jungler = df.loc[(df[champ1].isin(t_j)) & (
     df[champ2].isin(t_j)) & (df[year].isin(years))]
+
 df_mid_jungler = df.loc[(df[champ1].isin(m_J)) & (
     df[champ2].isin(m_J)) & (df[year].isin(years))]
+
 df_support_jungler = df.loc[(df[champ1].isin(s_J)) & (
     df[champ2].isin(s_J)) & (df[year].isin(years))]
+
 df_support_ad_carry = df.loc[(df[champ1].isin(ad_s)) & (
     df[champ2].isin(ad_s)) & (df[year].isin(years))]
 
@@ -35,14 +40,54 @@ print(df_top_jungler.head(5))
 # print(df_mid_jungler.head(5))
 # print(df_support_jungler.head(5))
 # print(df_support_ad_carry.head(5))
-victory_column = 'VICTORY'
+team = "TEAM"
+blue = "Blue"
+red = "Red"
 
-dfToList_t_j = df_top_jungler[victory_column].tolist()
-dfToList_m_J = df_mid_jungler[victory_column].tolist()
-dfToList_s_J = df_support_jungler[victory_column].tolist()
-dfToList_ad_s = df_support_ad_carry[victory_column].tolist()
+df_top_jungler_r = df_top_jungler.loc[df[team] == red]
+df_top_jungler_b = df_top_jungler.loc[df[team] == blue]
 
-mathBoxPlot(dfToList_t_j, 'top_jungler_chart', 'top/jungle')
-mathBoxPlot(dfToList_m_J, 'mid_jungler_chart', 'mid/jungle')
-mathBoxPlot(dfToList_s_J, 'support_jungler_chart', 'support/jungle')
-mathBoxPlot(dfToList_ad_s, 'ad_carry_support_chart', 'ad carry/ support')
+df_mid_jungler_r = df_mid_jungler.loc[df[team] == red]
+df_mid_jungler_b = df_mid_jungler.loc[df[team] == blue]
+
+df_support_jungler_r = df_support_jungler.loc[df[team] == red]
+df_support_jungler_b = df_support_jungler.loc[df[team] == blue]
+
+df_support_ad_carry_r = df_support_ad_carry.loc[df[team] == red]
+df_support_ad_carry_b = df_support_ad_carry.loc[df[team] == blue]
+
+victory_column = "VICTORY"
+
+dfToList_t_j_r = df_top_jungler_r[victory_column].tolist()
+dfToList_t_j_b = df_top_jungler_b[victory_column].tolist()
+
+dfToList_m_j_r = df_mid_jungler_r[victory_column].tolist()
+dfToList_m_j_b = df_mid_jungler_b[victory_column].tolist()
+
+dfToList_s_j_r = df_support_jungler_r[victory_column].tolist()
+dfToList_s_j_b = df_support_jungler_b[victory_column].tolist()
+
+dfToList_ad_s_r = df_support_ad_carry_r[victory_column].tolist()
+dfToList_ad_s_b = df_support_ad_carry_b[victory_column].tolist()
+
+f = 'vitorias_absolutas_das_duplas'
+
+mathBoxPlot(dfToList_t_j_r, 'top_jungler_red_chart',
+            'top/jungle red', folder=f)
+mathBoxPlot(dfToList_t_j_b, 'top_jungler_blue_chart',
+            'top/jungle blue', folder=f)
+
+mathBoxPlot(dfToList_m_j_r, 'mid_jungler_red_chart',
+            'mid/jungle red', folder=f)
+mathBoxPlot(dfToList_m_j_b, 'mid_jungler_blue_chart',
+            'mid/jungle blue', folder=f)
+
+mathBoxPlot(dfToList_s_j_r, 'support_jungler_red_chart',
+            'support/jungle red', folder=f)
+mathBoxPlot(dfToList_s_j_b, 'support_jungler_blue_chart',
+            'support/jungle blue', folder=f)
+
+mathBoxPlot(dfToList_ad_s_r, 'ad_carry_support_red_chart',
+            'ad carry/support red', folder=f)
+mathBoxPlot(dfToList_ad_s_b, 'ad_carry_support_blue_chart',
+            'ad carry/support blue', folder=f)
