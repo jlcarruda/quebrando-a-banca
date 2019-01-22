@@ -141,7 +141,7 @@ def start():
             x)])] = a["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredMiddleChamp['redMiddleChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
         a = addToDic(bestCombination, str(dicredJungleChamp['redJungleChamp'][str(x)]), str(dicredSupportChamp['redSupportChamp'][str(
-            x)]), dicrResult['rResult'][str(x)], str(dicyear['Year'][str(x)]), str(dicseason['Season'][str(x)]), 'Red', 'AD_CARRY', 'SUPPORT')
+            x)]), dicrResult['rResult'][str(x)], str(dicyear['Year'][str(x)]), str(dicseason['Season'][str(x)]), 'Red', 'JUNGLER', 'SUPPORT')
         bestCombination["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(
             x)])] = a["Red,"+str(dicredJungleChamp['redJungleChamp'][str(x)])+","+str(dicredSupportChamp['redSupportChamp'][str(x)])+","+str(dicyear['Year'][str(x)])+","+str(dicseason['Season'][str(x)])]
 
