@@ -2,14 +2,14 @@ type,skill,champion
 ['Aura'],Tailwind,Janna
 "['Aura', 'Dash', 'Sight']",Demacian Standard,Jarvan IV
 ['Aura'],Wild Growth,Lulu
-"['Aura', 'Aura']",On the Hunt,Sivir
+['Aura'],On the Hunt,Sivir
 ['Aura'],Hymn of Valor,Sona
 ['Aura'],Aria of Perseverance,Sona
 ['Aura'],Song of Celerity,Sona
 ['Aura'],Despair,Amumu
 ['Aura'],Burning Agony,Dr. Mundo
-"['Blink', 'Blink']",Living Shadow 2,Zed
-"['Blink', 'Blink', 'Debuff']",Riftwalk,Kassadin
+['Blink'],Living Shadow 2,Zed
+"['Blink', 'Debuff']",Riftwalk,Kassadin
 "['Blink', 'Dash']",Event Horizon,Veigar
 "['Blink', 'Dash']",Phase Dive,Ekko
 "['Blink', 'Sight', 'Untargetability']",Rappel,Elise
@@ -22,7 +22,7 @@ type,skill,champion
 "['Blink', 'Untargetability']",Alpha Strike,Master Yi
 "['Blink', 'Sight', 'Untargetability']",Grand Skyfall,Pantheon
 ['Blink'],Death from Below,Pyke
-"['Blink', 'Untargetability', 'Untargetability', 'Untargetability']",Realm Warp,Ryze
+"['Blink', 'Untargetability']",Realm Warp,Ryze
 "['Blink', 'Physical_damage']",Deceive,Shaco
 ['Blink'],Stand United,Shen
 ['Blink'],Abyssal Voyage 2,Tahm Kench
@@ -110,16 +110,16 @@ type,skill,champion
 ['True_damage'],Intervention,Kayle
 "['True_damage', 'Spell_shield']",Riposte,Fiora
 ['True_damage'],Counter Strike,Jax
-"['True_damage', 'True_damage']",Feast,Cho'Gath
-"['True_damage', 'True_damage', 'Debuff']",Silver Bolts,Vayne
+['True_damage'],Feast,Cho'Gath
+"['True_damage', 'Debuff']",Silver Bolts,Vayne
 ['True_damage'],Soul Furnace,Sion
 ['True_damage'],Eye of the Storm,Janna
 ['True_damage'],Precision Protocol 3,Camille
-"['True_damage', 'True_damage', 'True_damage']",Duelist's Dance,Fiora
+['True_damage'],Duelist's Dance,Fiora
 "['True_damage', 'Debuff']",Trial by Fire,Gangplank
 ['True_damage'],Powder Keg,Gangplank
-"['True_damage', 'True_damage', 'Debuff', 'Debuff']",Demacian Justice,Garen
-"['True_damage', 'Debuff', 'Debuff']",Deadly Venom,Twitch
+"['True_damage', 'Debuff']",Demacian Justice,Garen
+"['True_damage', 'Debuff']",Deadly Venom,Twitch
 ['True_damage'],Wuju Style,Master Yi
 ['True_damage'],Orb of Deception,Ahri
 "['True_damage', 'Debuff']",Cursed Touch,Amumu
@@ -137,29 +137,29 @@ type,skill,champion
 ['True_damage'],Life Form Disintegration Ray,Vel'Koz
 ['True_damage'],Researched,Vel'Koz
 ['True_damage'],Sleepy Trouble Bubble,Zoe
-"['True_damage', 'Untargetability', 'Untargetability']",Glory in Death,Sion
+"['True_damage', 'Untargetability']",Glory in Death,Sion
 "['True_damage', 'Dash', 'Debuff', 'Sight', 'Untargetability']",Death Mark,Zed
 "['True_damage', 'Debuff']",Hemoplague,Vladimir
-"['Dash', 'Dash']",Arctic Assault,Sejuani
-"['Dash', 'Dash']",Venomous Bite,Elise
-"['Dash', 'Dash']",Justice Punch,Galio
-"['Dash', 'Dash', 'Sight']",Jousting,Kled
-"['Dash', 'Dash']",Searing Charge,Ornn
-"['Dash', 'Dash']",Broken Wings,Riven
-"['Dash', 'Dash']",Valor,Riven
-"['Dash', 'Dash']",Tumble,Vayne
-"['Dash', 'Dash']",Disdain,Urgot
-"['Dash', 'Dash']",Relentless Pursuit,Lucian
+['Dash'],Arctic Assault,Sejuani
+['Dash'],Venomous Bite,Elise
+['Dash'],Justice Punch,Galio
+"['Dash', 'Sight']",Jousting,Kled
+['Dash'],Searing Charge,Ornn
+['Dash'],Broken Wings,Riven
+['Dash'],Valor,Riven
+['Dash'],Tumble,Vayne
+['Dash'],Disdain,Urgot
+['Dash'],Relentless Pursuit,Lucian
 "['Dash', 'Debuff', 'Sight']",Flame Chompers!,Jinx
 "['Dash', 'Sight']",Magical Journey,Bard
 ['Dash'],Shuriken Flip 2,Akali
 ['Dash'],Rootcaller,Ivern
 "['Dash', 'Debuff']",Dragon Strike,Jarvan IV
 ['Dash'],Jousting 2,Kled
-"['Dash', 'Dash']",Chaaaaaaaarge!!!,Kled
+['Dash'],Chaaaaaaaarge!!!,Kled
 ['Dash'],Resonating Strike,Lee Sin
 ['Dash'],Zenith Blade,Leona
-"['Dash', 'Dash']",Dredge Line,Nautilus
+['Dash'],Dredge Line,Nautilus
 ['Dash'],Death Leap,Thresh
 "['Dash', 'Sight']",Dark Passage,Thresh
 "['Dash', 'Sight']",Satchel Charge,Ziggs
@@ -188,7 +188,7 @@ type,skill,champion
 ['Dash'],Comet of Legend,Aurelion Sol
 ['Dash'],Wall Dive,Camille
 ['Dash'],Valkyrie,Corki
-"['Dash', 'Untargetability', 'Untargetability']",Playful,Fizz
+"['Dash', 'Untargetability']",Playful,Fizz
 ['Dash'],Trickster,Fizz
 ['Dash'],Hero's Entrance,Galio
 ['Dash'],Hop,Gnar
@@ -213,7 +213,7 @@ type,skill,champion
 ['Dash'],Empowered Whiplash,Evelynn
 ['Dash'],Urchin Strike,Fizz
 ['Dash'],Devastating Charge,Hecarim
-"['Dash', 'Spell_shield', 'Spell_shield']",Harsh Lesson,Illaoi
+"['Dash', 'Spell_shield']",Harsh Lesson,Illaoi
 ['Dash'],Bladesurge,Irelia
 ['Dash'],Cataclysm,Jarvan IV
 ['Dash'],To the Skies!,Jayce
@@ -243,45 +243,45 @@ type,skill,champion
 ['Debuff'],Spell Flux,Ryze
 "['Debuff', 'Untargetability']",Roar of the Slayer,Sion
 ['Debuff'],Chomp,Trundle
-"['Debuff', 'Debuff']",Subjugate,Trundle
+['Debuff'],Subjugate,Trundle
 ['Debuff'],Mocking Shout,Tryndamere
-"['Debuff', 'Debuff']",Denting Blows,Vi
+['Debuff'],Denting Blows,Vi
 ['Debuff'],Crushing Blow,Wukong
-"['Debuff', 'Debuff']",Challenge,Xin Zhao
+['Debuff'],Challenge,Xin Zhao
 ['Debuff'],Mark of the Assassin,Akali
 ['Debuff'],Flash Frost,Anivia
-"['Debuff', 'Debuff']",Glacial Storm,Anivia
-"['Debuff', 'Debuff']",Blaze,Brand
+['Debuff'],Glacial Storm,Anivia
+['Debuff'],Blaze,Brand
 ['Debuff'],Concussive Blows,Braum
-"['Debuff', 'Debuff']",Noxious Blast,Cassiopeia
-"['Debuff', 'Debuff', 'Sight']",Miasma,Cassiopeia
-"['Debuff', 'Debuff']",Hemorrhage,Darius
+['Debuff'],Noxious Blast,Cassiopeia
+"['Debuff', 'Sight']",Miasma,Cassiopeia
+['Debuff'],Hemorrhage,Darius
 "['Debuff', 'Sight']",Crescent Strike,Diana
 ['Debuff'],Z-Drive Resonance,Ekko
-"['Debuff', 'Sight', 'Sight']",Chum the Waters,Fizz
+"['Debuff', 'Sight']",Chum the Waters,Fizz
 ['Debuff'],Hyper,Gnar
 ['Debuff'],Rend,Kalista
-"['Debuff', 'Sight', 'Sight']",Sentinel,Kalista
+"['Debuff', 'Sight']",Sentinel,Kalista
 ['Debuff'],Mark of the Storm,Kennen
 ['Debuff'],Sigil of Malice,LeBlanc
 "['Debuff', 'Sight']",Sonic Wave,Lee Sin
 "['Debuff', 'Sight']",Ardent Blaze,Lucian
 ['Debuff'],Ardent Blaze 2,Lucian
 ['Debuff'],Illumination,Lux
-"['Debuff', 'Debuff']",Malefic Visions,Malzahar
-"['Debuff', 'Debuff']",Children of the Grave,Mordekaiser
+['Debuff'],Malefic Visions,Malzahar
+['Debuff'],Children of the Grave,Mordekaiser
 "['Debuff', 'Sight']",Prowl,Nidalee
 ['Debuff'],Duskbringer,Nocturne
 "['Debuff', 'Sight']",Harrier,Quinn
 ['Debuff'],Permafrost,Sejuani
-"['Debuff', 'Debuff']",Poison Trail,Singed
-"['Debuff', 'Debuff']",Twin Fang,Cassiopeia
+['Debuff'],Poison Trail,Singed
+['Debuff'],Twin Fang,Cassiopeia
 ['Debuff'],Crystal Venom,Skarner
 ['Debuff'],Fracture,Skarner
 ['Debuff'],An Acquired Taste,Tahm Kench
-"['Debuff', 'Debuff']",Toxic Shot,Teemo
-"['Debuff', 'Debuff', 'Sight']",Noxious Trap,Teemo
-"['Debuff', 'Debuff']",Blade's End,Talon
+['Debuff'],Toxic Shot,Teemo
+"['Debuff', 'Sight']",Noxious Trap,Teemo
+['Debuff'],Blade's End,Talon
 "['Debuff', 'Sight']",Death Sentence,Thresh
 ['Debuff'],Hemorrhage 2,Darius
 "['Debuff', 'Untargetability']",Drain,Fiddlesticks
@@ -294,7 +294,7 @@ type,skill,champion
 ['Debuff'],Unspeakable Horror,Nocturne
 ['Debuff'],Tiger Stance,Udyr
 ['Debuff'],Power Chord,Sona
-"['Sight', 'Sight']",Heightened Senses,Quinn
+['Sight'],Heightened Senses,Quinn
 ['Sight'],Smoke Screen,Graves
 "['Sight', 'Untargetability']",Devour,Tahm Kench
 ['Sight'],Burrow,Rek'Sai
@@ -302,7 +302,7 @@ type,skill,champion
 ['Sight'],Hawkshot,Ashe
 ['Sight'],Enchanted Crystal Arrow,Ashe
 ['Sight'],Caretaker's Shrine,Bard
-"['Sight', 'Sight']",Yordle Snap Trap,Caitlyn
+['Sight'],Yordle Snap Trap,Caitlyn
 ['Sight'],Rupture,Cho'Gath
 ['Sight'],Apprehend,Darius
 ['Sight'],Whirling Death,Draven
@@ -317,10 +317,10 @@ type,skill,champion
 ['Sight'],Lay Waste,Karthus
 ['Sight'],Solar Flare,Leona
 ['Sight'],Lucent Singularity,Lux
-"['Sight', 'Sight']",Final Spark,Lux
+['Sight'],Final Spark,Lux
 ['Sight'],Call of the Void,Malzahar
 ['Sight'],Sapling Toss,Maokai
-"['Sight', 'Sight']",Nature's Grasp,Maokai
+['Sight'],Nature's Grasp,Maokai
 ['Sight'],Make It Rain,Miss Fortune
 ['Sight'],Undertow,Olaf
 ['Sight'],Command Attack,Orianna
@@ -339,9 +339,9 @@ type,skill,champion
 ['Sight'],Living Shadow,Zed
 ['Sight'],Hexplosive Minefield,Ziggs
 ['Sight'],Mega Inferno Bomb,Ziggs
-"['Sight', 'Sight']",Rampant Growth,Zyra
+['Sight'],Rampant Growth,Zyra
 ['Sight'],Cocoon,Elise
-"['Sight', 'Sight']",Test of Spirit,Illaoi
+['Sight'],Test of Spirit,Illaoi
 ['Sight'],Zap!,Jinx
 ['Sight'],Aqua Prison,Nami
 ['Sight'],Threaded Volley,Taliyah
@@ -360,7 +360,7 @@ type,skill,champion
 ['Untargetability'],Disintegrate,Annie
 ['Untargetability'],Pillar of Flame,Brand
 ['Untargetability'],Requiem,Karthus
-"['Untargetability', 'Untargetability']",Wish,Soraka
+['Untargetability'],Wish,Soraka
 ['Untargetability'],The Hextech Ultimatum,Camille
 ['Untargetability'],Death Defied,Karthus
 ['Untargetability'],Skaarl the Cowardly Lizard 3,Kled
