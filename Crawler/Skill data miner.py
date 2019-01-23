@@ -16,26 +16,32 @@ class AbilitiesMiner:
         driver = webdriver.Chrome()
         driver.get(link)
         elements=driver.find_elements_by_css_selector('span.inline-image.label-after.ability-icon.tooltips-init-complete')
+        
         for x in elements:
             champion = x.get_attribute('data-champion')
             skill = x.get_attribute('data-ability')
             try:
-                self.result[skill]['type'].append(tipo)
+                if tipo not in self.result[skill]['type']:
+                    self.result[skill]['type'].append(tipo)
                 self.result[skill]['champion'] = champion
                 self.result[skill]['skill'] = skill 
             except:
                 try:
                     self.result[skill]['type'] = []
-                    self.result[skill]['type'].append(tipo)
+                    if tipo not in self.result[skill]['type']:
+                        self.result[skill]['type'].append(tipo)
                     self.result[skill]['champion'] = champion
                     self.result[skill]['skill'] = skill 
                 except:
                     self.result[skill]={}
                     self.result[skill]['type'] = []
-                    self.result[skill]['type'].append(tipo)
+                    if tipo not in self.result[skill]['type']:
+                        self.result[skill]['type'].append(tipo)
                     self.result[skill]['skill'] = skill 
                     self.result[skill]['champion'] = champion
+        driver.quit()   
         return self.result
+    
         
 
 tipos = ['Aura','Blink','Combat_status','Magic_damage','Physical_damage','True_damage','Dash','Debuff','Sight','Spell_shield','Untargetability']
