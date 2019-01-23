@@ -1,0 +1,135 @@
+champion,tags
+Aatrox,"['Fighter', 'Tank']"
+Ahri,"['Mage', 'Assassin']"
+Akali,['Assassin']
+Alistar,"['Tank', 'Support']"
+Amumu,"['Tank', 'Mage']"
+Anivia,"['Mage', 'Support']"
+Annie,['Mage']
+Ashe,"['Marksman', 'Support']"
+AurelionSol,"['Mage', 'Fighter']"
+Azir,"['Mage', 'Marksman']"
+Bard,"['Support', 'Mage']"
+Blitzcrank,"['Tank', 'Fighter']"
+Brand,['Mage']
+Braum,"['Support', 'Tank']"
+Caitlyn,['Marksman']
+Camille,"['Fighter', 'Tank']"
+Cassiopeia,['Mage']
+Chogath,"['Tank', 'Mage']"
+Corki,['Marksman']
+Darius,"['Fighter', 'Tank']"
+Diana,"['Fighter', 'Mage']"
+Draven,['Marksman']
+DrMundo,"['Fighter', 'Tank']"
+Ekko,"['Assassin', 'Fighter']"
+Elise,"['Mage', 'Fighter']"
+Evelynn,"['Assassin', 'Mage']"
+Ezreal,"['Marksman', 'Mage']"
+FiddleSticks,"['Mage', 'Support']"
+Fiora,"['Fighter', 'Assassin']"
+Fizz,"['Assassin', 'Fighter']"
+Galio,"['Tank', 'Mage']"
+Gangplank,['Fighter']
+Garen,"['Fighter', 'Tank']"
+Gnar,"['Fighter', 'Tank']"
+Gragas,"['Fighter', 'Mage']"
+Graves,['Marksman']
+Hecarim,"['Fighter', 'Tank']"
+Heimerdinger,"['Mage', 'Support']"
+Illaoi,"['Fighter', 'Tank']"
+Irelia,"['Fighter', 'Assassin']"
+Ivern,"['Support', 'Mage']"
+Janna,"['Support', 'Mage']"
+JarvanIV,"['Tank', 'Fighter']"
+Jax,"['Fighter', 'Assassin']"
+Jayce,"['Fighter', 'Marksman']"
+Jhin,"['Marksman', 'Assassin']"
+Jinx,['Marksman']
+Kalista,['Marksman']
+Karma,"['Mage', 'Support']"
+Karthus,['Mage']
+Kassadin,"['Assassin', 'Mage']"
+Katarina,"['Assassin', 'Mage']"
+Kayle,"['Fighter', 'Support']"
+Kennen,"['Mage', 'Marksman']"
+Khazix,"['Assassin', 'Fighter']"
+Kindred,['Marksman']
+Kled,"['Fighter', 'Tank']"
+KogMaw,"['Marksman', 'Mage']"
+Leblanc,"['Assassin', 'Mage']"
+LeeSin,"['Fighter', 'Assassin']"
+Leona,"['Tank', 'Support']"
+Lissandra,['Mage']
+Lucian,['Marksman']
+Lulu,"['Support', 'Mage']"
+Lux,"['Mage', 'Support']"
+Malphite,"['Tank', 'Fighter']"
+Malzahar,"['Mage', 'Assassin']"
+Maokai,"['Tank', 'Mage']"
+MasterYi,"['Assassin', 'Fighter']"
+MissFortune,['Marksman']
+MonkeyKing,"['Fighter', 'Tank']"
+Mordekaiser,['Fighter']
+Morgana,"['Mage', 'Support']"
+Nami,"['Support', 'Mage']"
+Nasus,"['Fighter', 'Tank']"
+Nautilus,"['Tank', 'Fighter']"
+Nidalee,"['Assassin', 'Fighter']"
+Nocturne,"['Assassin', 'Fighter']"
+Nunu,"['Support', 'Fighter']"
+Olaf,"['Fighter', 'Tank']"
+Orianna,"['Mage', 'Support']"
+Pantheon,"['Fighter', 'Assassin']"
+Poppy,"['Tank', 'Fighter']"
+Quinn,"['Marksman', 'Fighter']"
+Rammus,"['Tank', 'Fighter']"
+RekSai,['Fighter']
+Renekton,"['Fighter', 'Tank']"
+Rengar,"['Assassin', 'Fighter']"
+Riven,"['Fighter', 'Assassin']"
+Rumble,"['Fighter', 'Mage']"
+Ryze,"['Mage', 'Fighter']"
+Sejuani,"['Tank', 'Fighter']"
+Shaco,['Assassin']
+Shen,"['Tank', 'Melee']"
+Shyvana,"['Fighter', 'Tank']"
+Singed,"['Tank', 'Fighter']"
+Sion,"['Tank', 'Fighter']"
+Sivir,['Marksman']
+Skarner,"['Fighter', 'Tank']"
+Sona,"['Support', 'Mage']"
+Soraka,"['Support', 'Mage']"
+Swain,"['Mage', 'Fighter']"
+Syndra,"['Mage', 'Support']"
+TahmKench,"['Support', 'Tank']"
+Taliyah,"['Mage', 'Support']"
+Talon,"['Assassin', 'Fighter']"
+Taric,"['Support', 'Fighter']"
+Teemo,"['Marksman', 'Assassin']"
+Thresh,"['Support', 'Fighter']"
+Tristana,"['Marksman', 'Assassin']"
+Trundle,"['Fighter', 'Tank']"
+Tryndamere,"['Fighter', 'Assassin']"
+TwistedFate,['Mage']
+Twitch,"['Marksman', 'Assassin']"
+Udyr,"['Fighter', 'Tank']"
+Urgot,"['Marksman', 'Fighter']"
+Varus,"['Marksman', 'Mage']"
+Vayne,"['Marksman', 'Assassin']"
+Veigar,['Mage']
+Velkoz,['Mage']
+Vi,"['Fighter', 'Assassin']"
+Viktor,['Mage']
+Vladimir,"['Mage', 'Tank']"
+Volibear,"['Fighter', 'Tank']"
+Warwick,"['Fighter', 'Tank']"
+Xerath,"['Mage', 'Assassin']"
+XinZhao,"['Fighter', 'Assassin']"
+Yasuo,"['Fighter', 'Assassin']"
+Yorick,"['Fighter', 'Tank']"
+Zac,"['Tank', 'Fighter']"
+Zed,"['Assassin', 'Fighter']"
+Ziggs,['Mage']
+Zilean,"['Support', 'Mage']"
+Zyra,"['Mage', 'Support']"
