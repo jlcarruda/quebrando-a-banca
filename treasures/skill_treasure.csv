@@ -1,11 +1,8 @@
-type,skill,champion
-['Aura'],Tailwind,Janna
-"['Aura', 'Dash', 'Sight']",Demacian Standard,Jarvan IV
-['Aura'],Wild Growth,Lulu
-['Aura'],On the Hunt,Sivir
-['Aura'],Hymn of Valor,Sona
-['Aura'],Aria of Perseverance,Sona
-['Aura'],Song of Celerity,Sona
+type,skill,champion['Aura'],Tailwind,Janna"['Aura', 'Dash', 'Sight']",Demacian Standard,Jarvan IV['Aura'],Wild Growth,Lulu
+['Aura'],On the Hunt,Sivir
+['Aura'],Hymn of Valor,Sona
+['Aura'],Aria of Perseverance,Sona
+['Aura'],Song of Celerity,Sona
 ['Aura'],Despair,Amumu
 ['Aura'],Burning Agony,Dr. Mundo
 ['Blink'],Living Shadow 2,Zed
