@@ -17,5 +17,13 @@ df_tags_duos.rename(
     columns={'tags': 'CHAMP2_TAG'}, inplace=True)
 
 df_tags_duos.drop(['CHAMP1', 'CHAMP2'], axis=1, inplace=True)
+# df_tags_duos = df_tags_duos.loc[(df_tags_duos['YEAR'].isin([2016, 2017]))]
+df_tags_duos = df_tags_duos.groupby(['CHAMP1_POSITION', 'CHAMP2_POSITION', 'YEAR', 'SEASON', 'TEAM', 'CHAMP1_TAG', 'CHAMP2_TAG'],
+                                    as_index=False)['VICTORY', 'DEFEAT', 'TOTALPLAYED'].sum()
+df_tags_duos['PERCENTVICTORY'] = df_tags_duos.VICTORY / \
+    df_tags_duos.TOTALPLAYED
 
-print(df_tags_duos.head())
+df_tags_duos['PERCENTDEFEAT'] = df_tags_duos.DEFEAT / \
+    df_tags_duos.TOTALPLAYED
+# print(df_tags_duos.head())
+df_tags_duos.to_csv('../treasures/tag_duos.csv', encoding='utf-8', index=False)
