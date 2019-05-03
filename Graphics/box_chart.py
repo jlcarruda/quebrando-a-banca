@@ -8,17 +8,19 @@ def mathBoxPlot(listValues,listValues2, titleFig="Default", titleChart="simple",
     blue_diamond = dict(markerfacecolor=color2, marker='D')
     red_diamond = dict(markerfacecolor=color1, marker='D')
     
-    dataRed = np.array([listValues,listValues,listValues2,listValues2])
-    fig, axs = plt.subplots()
+    dataRed = np.array([listValues,listValues2])
+    dataBlue = np.array([listValues,listValues2])
+    ind = np.arange(2)
+    fig, axs = plt.subplots(1,2)
     fig.canvas.set_window_title(titleFig)
-
-    bp = axs.boxplot(dataRed,patch_artist=True)
-    bp['fliers'][1].set_data([0,0])
-    bp['fliers'][3].set_data([0,0])
-    axs.set_title(titleChart)
-    axs.set_ylabel(typeData+' de '+ dataName)
-    colors = [color1,color1,color2,color2]
-    colors1 = [color1,color2]
+    bp = axs[0].boxplot(dataRed,patch_artist=True)
+    plt.xticks(ind, ('Time Azul', 'Time Vermelho'))
+    bp1 = axs[1].boxplot(dataBlue,0, '',patch_artist=True)
+    axs[0].set_title(titleChart)
+    axs[0].set_ylabel(typeData+' de '+ dataName)
+    axs[1].set_title(titleChart+ ' sem outliers')
+    axs[1].set_ylabel(typeData+' de '+ dataName)
+    colors = [color1,color2]
 
 
     for patch, color in zip(bp['boxes'], colors):
@@ -27,9 +29,19 @@ def mathBoxPlot(listValues,listValues2, titleFig="Default", titleChart="simple",
     for median in bp['medians']:
         median.set(color='black', linewidth=2)
     n=0
-    print(bp)
     for flier in bp['fliers']:
         flier.set(markerfacecolor=colors[n])
+        print(flier.get_data())
+        n+=1
+    for patch, color in zip(bp1['boxes'], colors):
+        patch.set_facecolor(color)
+
+    for median in bp1['medians']:
+        median.set(color='black', linewidth=2)
+    n=0
+    for flier in bp1['fliers']:
+        flier.set(markerfacecolor=colors[n])
+        print(flier.get_data())
         n+=1
         
 
