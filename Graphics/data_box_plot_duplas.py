@@ -72,22 +72,15 @@ dfToList_ad_s_b = df_support_ad_carry_b[victory_column].tolist()
 
 f = 'vitorias_absolutas_das_duplas'
 
-mathBoxPlot(dfToList_t_j_r, 'top_jungler_red_chart',
-            'top/jungle red', folder=f)
-mathBoxPlot(dfToList_t_j_b, 'top_jungler_blue_chart',
-            'top/jungle blue', folder=f)
+mathBoxPlot(dfToList_t_j_r,dfToList_t_j_b, 'top_jungler_red_chart',
+            'Top/jungle red', folder=f)
 
-mathBoxPlot(dfToList_m_j_r, 'mid_jungler_red_chart',
-            'mid/jungle red', folder=f)
-mathBoxPlot(dfToList_m_j_b, 'mid_jungler_blue_chart',
-            'mid/jungle blue', folder=f)
+mathBoxPlot(dfToList_m_j_r,dfToList_m_j_b, 'mid_jungler_red_chart',
+            'Mid/jungle red', folder=f)
 
-mathBoxPlot(dfToList_s_j_r, 'support_jungler_red_chart',
-            'support/jungle red', folder=f)
-mathBoxPlot(dfToList_s_j_b, 'support_jungler_blue_chart',
-            'support/jungle blue', folder=f)
+mathBoxPlot(dfToList_s_j_r,dfToList_s_j_b, 'support_jungler_red_chart',
+            'Support/jungle red', folder=f)
 
-mathBoxPlot(dfToList_ad_s_r, 'ad_carry_support_red_chart',
-            'ad carry/support red', folder=f)
-mathBoxPlot(dfToList_ad_s_b, 'ad_carry_support_blue_chart',
-            'ad carry/support blue', folder=f)
+mathBoxPlot(dfToList_ad_s_r,dfToList_ad_s_b, 'ad_carry_support_red_chart',
+            'Adc carry/support red', folder=f)
+
