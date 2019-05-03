@@ -7,20 +7,27 @@ import errno
 def mathBoxPlot(listValues,listValues2, titleFig="Default", titleChart="simple", path='box_chart_save_fig/', folder='', typeData='Quantidade', dataName="Vitorias",color1="red",color2="blue"):
     blue_diamond = dict(markerfacecolor=color2, marker='D')
     red_diamond = dict(markerfacecolor=color1, marker='D')
-    
     dataRed = np.array([listValues,listValues2])
     dataBlue = np.array([listValues,listValues2])
     ind = np.arange(2)
     fig, axs = plt.subplots(1,2)
     fig.canvas.set_window_title(titleFig)
     bp = axs[0].boxplot(dataRed,patch_artist=True)
-    plt.xticks(ind, ('Time Azul', 'Time Vermelho'))
     bp1 = axs[1].boxplot(dataBlue,0, '',patch_artist=True)
     axs[0].set_title(titleChart)
     axs[0].set_ylabel(typeData+' de '+ dataName)
     axs[1].set_title(titleChart+ ' sem outliers')
     axs[1].set_ylabel(typeData+' de '+ dataName)
     colors = [color1,color2]
+    fig.text(0.63, 0.016, 'Team Red', color='black', backgroundcolor='red',
+         weight='roman', size='medium')
+    fig.text(0.823, 0.016, 'Team Blue', color='black',backgroundcolor='blue',
+             weight='roman',size='medium')
+    fig.text(0.125, 0.016, 'Team Red', color='black', backgroundcolor='red',
+         weight='roman', size='medium')
+    fig.text(0.320, 0.016, 'Team Blue', color='black',backgroundcolor='blue',
+             weight='roman',size='medium')
+
 
 
     for patch, color in zip(bp['boxes'], colors):
